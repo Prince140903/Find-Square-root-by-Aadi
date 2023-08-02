@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>square root finder</title>
+	<style>
+		* { font-size:70px; font-family:Cambria; }
+		body { background-color:lightyellow; }
+		h1 {background-color:black; color:white; width:50%; }
+	</style>
+	<script>
+		function find()
+		{
+			event.preventDefault();
+			let num = document.getElementById("num");
+			let ans = document.getElementById("ans");
+				
+			if(num.value == "")
+			{
+				alert("Number is Empty");
+				ans.innerHTML="";
+				num.focus();
+				return;
+			}
+
+			let n = parseInt(num.value);
+			
+			if(n<0.0)
+			{
+				alert("-ve number not allowed");
+				ans.innerHTML="";
+				num.focus();
+				num.value="";
+				return;
+			}
+		
+			let r = Math.sqrt(n);
+			let msg = "sqrt = " +r.toFixed(2);
+			ans.innerHTML = msg;
+		}
+	</script>	
+</head>
+<body>
+<center>
+	<h1>Square root Finder</h1>
+	<form onsubmit="find()">
+		<input type="number" step="any" placeholder="Enter a number" id="num" />
+		<br><br>
+		<input type="submit" value="Find square root" />
+	</form>
+	<h2 id="ans"/>
+</center>
+</body>
+</html>
